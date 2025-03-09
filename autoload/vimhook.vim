@@ -14,3 +14,12 @@ endfunction
 function! vimhook#Load(id)
 	execute "buffer" g:vimhook_hooks[a:id]
 endfunction
+
+function! vimhook#ListHooks()
+	for i in [0, 1, 2, 3, 4, 5]
+		if g:vimhook_hooks[i] == 0
+			continue
+		endif
+		echo "  " . i . ": [" . g:vimhook_hooks[i] . "] " . bufname(g:vimhook_hooks[i])
+	endfor
+endfunction
