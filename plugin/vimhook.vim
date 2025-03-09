@@ -3,5 +3,5 @@ if exists('g:loaded_vimhook')
 endif
 let g:loaded_vimhook = 1
 
-command! Hook call vimhook#Hook()
-command! Load call vimhook#Load()
+command! -nargs=1 Hook call vimhook#Hook(<args>)
+command! -nargs=1 Load call vimhook#Load(<args>)

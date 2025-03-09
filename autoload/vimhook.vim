@@ -5,12 +5,12 @@ if exists('g:autoloaded_vimhook')
 endif
 let g:autoloaded_vimhook = 1
 
-let s:vimhook_hooks = [ 0, 1, 2, 3, 4 ]
+let g:vimhook_hooks = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
 
-function! vimhook#Hook()
-	let s:vimhook_hooks[0] = bufnr()
+function! vimhook#Hook(id)
+	let g:vimhook_hooks[a:id] = bufnr()
 endfunction
 
-function! vimhook#Load()
-	echo s:vimhook_hooks[0]
+function! vimhook#Load(id)
+	execute "buffer" g:vimhook_hooks[a:id]
 endfunction
